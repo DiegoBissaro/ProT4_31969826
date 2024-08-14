@@ -2,10 +2,12 @@ import {pool} from "./database.js";
 
 class LibrosController{
 
+    /* trae todos los libros */
     async getAll(req, res) {
         const [result] = await pool.query("SELECT * FROM libros");
         res.json(result);
-    }  /* utilizo el try catch */
+    }  
+    /* utilizo el try catch  - trae un libro por Id*/
     async getOne(req, res) {
         const { id } = req.params; // Obtiene el id de los parámetros de la solicitud
         try {
@@ -19,6 +21,7 @@ class LibrosController{
         }
     }
 
+/* Agrega un registro  */
     async add(req, res){
         const libro = req.body;
         const  [result] = await pool.query(`INSERT INTO libros(nombre, autor, categoria, año_publicacion, ISBN) VALUES (?, ?, ?, ?, ?)`, [libro.nombre, libro.autor, libro.categoria, libro.año_publicacion, libro.ISBN]);
