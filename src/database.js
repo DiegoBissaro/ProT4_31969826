@@ -7,4 +7,4 @@ const properties = {
     database: "ProT4_31969826"
 };
 
-export const pool = mysqlConnection.createPool(properties);
+export const pool = mysqlConnection.createPool(properties); 
