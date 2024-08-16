@@ -22,11 +22,34 @@ class LibrosController{
     }
 
 /* Agrega un registro  */
-    async add(req, res){
+async add(req, res) {
+    try {
         const libro = req.body;
-        const  [result] = await pool.query(`INSERT INTO libros(nombre, autor, categoria, año_publicacion, ISBN) VALUES (?, ?, ?, ?, ?)`, [libro.nombre, libro.autor, libro.categoria, libro.año_publicacion, libro.ISBN]);
+
+        // Validar que solo se envían los campos permitidos
+        const validFields = ['nombre', 'autor', 'categoria', 'año_publicacion', 'ISBN'];
+        Object.keys(libro).forEach(key => {
+            if (!validFields.includes(key)) {
+                throw new Error(`El campo ${key} no existe en el modelo de datos.`);
+            }
+        });
+
+        // Insertar en la base de datos
+        const [result] = await pool.query(`
+            INSERT INTO libros (nombre, autor, categoria, año_publicacion, ISBN) 
+            VALUES (?, ?, ?, ?, ?)`,
+            [libro.nombre, libro.autor, libro.categoria, libro.año_publicacion, libro.ISBN]
+        );
+
+        // Responder con el ID del libro insertado
         res.json({"Id insertado": result.insertId});
+
+    } catch (error) {
+        // Manejo de errores
+        console.error("Error al agregar libro:", error.message);
+        res.status(400).json({ error: error.message });
     }
+}
 
     async delete(req, res){
         const libro = req.body;
