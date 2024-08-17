@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2024 a las 20:43:53
+-- Tiempo de generación: 17-08-2024 a las 22:46:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,7 +29,7 @@ USE `prot4_31969826`;
 -- Estructura de tabla para la tabla `libros`
 --
 -- Creación: 14-08-2024 a las 18:24:42
--- Última actualización: 14-08-2024 a las 18:32:21
+-- Última actualización: 17-08-2024 a las 20:44:28
 --
 
 CREATE TABLE `libros` (
@@ -51,7 +51,7 @@ INSERT INTO `libros` (`id`, `nombre`, `autor`, `categoria`, `año_publicacion`, 
 (3, 'noches de sol', 'Elena Gonzalez', 'ciencias de las humanidades', '2016-08-09', '6735427839'),
 (4, 'el aprendizaje en el aula', 'Maria Galdeano', 'ciencias de las humanidades', '2021-08-04', '123498876'),
 (5, 'telentos digitales', 'Lucas Montiel', 'ciencias de la tecnologia', '2024-01-17', '9876543421'),
-(6, 'alicia en el pais de las marav', 'Juan Gomez', 'infantil', '2015-01-10', '1234561234542');
+(8, 'los ojos del perro siveriano', 'Wilson Wil', 'infantil', '2015-01-10', '1233212121');
 
 --
 -- Índices para tablas volcadas
@@ -71,7 +71,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
